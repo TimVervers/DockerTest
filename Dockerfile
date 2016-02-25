@@ -4,4 +4,3 @@ COPY ci.sh /usr/local/bin
 WORKDIR /usr/src/myapp
 ENTRYPOINT /bin/bash
 CMD [ "ci.sh" ]
-#CMD [ "php", "./index.php" ]
