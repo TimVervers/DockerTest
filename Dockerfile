@@ -15,8 +15,8 @@ RUN apt-get update \
   
 # Install composer and codesniffer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer install \
-    && composer global require "squizlabs/php_codesniffer=*"
+    && /usr/local/bin/composer install \
+    && /usr/local/bin/composer global require "squizlabs/php_codesniffer=*"
 
 #Define workdir
 WORKDIR /usr/src/myapp
