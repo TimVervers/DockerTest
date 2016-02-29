@@ -8,12 +8,15 @@ COPY . /usr/src/myapp
 COPY ci.sh /usr/local/bin
 
 # Install git, php composer
-RUN apt-get update && apt-get install -y \
-  curl php5-cli git \
-  unzip 
+RUN apt-get update \
+    && apt-get install -y \
+    curl php5-cli git \
+    unzip 
   
-# Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Install composer and codesniffer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && composer install \
+    && composer global require "squizlabs/php_codesniffer=*"
 
 #Define workdir
 WORKDIR /usr/src/myapp
