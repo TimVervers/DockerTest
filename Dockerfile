@@ -12,14 +12,14 @@ RUN apt-get update \
     && apt-get install -y \
     curl php5-cli git \
     unzip 
-  
-# Install composer and codesniffer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && /usr/local/bin/composer install \
-    && /usr/local/bin/composer global require "squizlabs/php_codesniffer=*"
-
+    
 #Define workdir
 WORKDIR /usr/src/myapp
+
+# Install composer and codesniffer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && composer install \
+    && composer global require "squizlabs/php_codesniffer=*"
 
 #Run ci.sh
 ENTRYPOINT /bin/bash "ci.sh"
