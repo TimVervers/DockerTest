@@ -1,4 +1,7 @@
-echo "Update composer"
+echo "Get PHP Codesniffer"
+composer global require "squizlabs/php_codesniffer=*"
+
+echo "Install composer in project"
 composer install
 
 echo "Run PHP lint"
