@@ -7,7 +7,7 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
 echo "Run Composer"
-php /usr/src/myapp/composer.phar install --no-dev --no-interaction --no-progress --optimize-autoloader
+php composer.phar update
 
 echo "Run PHP lint"
 find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
