@@ -8,7 +8,7 @@ php -r "unlink('composer-setup.php');"
 
 echo "Download GIT"
 apt-get update
-apt-get install git-core
+apt-get install git-all
 
 echo "Run Composer"
 php composer.phar update
