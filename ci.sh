@@ -1,7 +1,7 @@
-echo "Check if composer is installed""
+echo "Check if composer is installed"
 composer
 
-ech "Update composer"
+echo "Update composer"
 composer update
 
 echo "Run PHP lint"
