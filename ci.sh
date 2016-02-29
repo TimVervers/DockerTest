@@ -6,6 +6,9 @@ php -r "if (hash('SHA384', file_get_contents('composer-setup.php')) === 'fd26ce6
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
+echo "Download GIT"
+apt-get install git
+
 echo "Run Composer"
 php composer.phar update
 
