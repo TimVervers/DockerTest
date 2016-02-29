@@ -18,8 +18,7 @@ WORKDIR /usr/src/myapp
 
 # Install composer and codesniffer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer install --prefer-source \
-    && composer require "squizlabs/php_codesniffer=*"
+    && composer install --prefer-source
 
 #Run ci.sh
 ENTRYPOINT /bin/bash "ci.sh"
