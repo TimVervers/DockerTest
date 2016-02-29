@@ -10,4 +10,4 @@ echo "Run Composer"
 php /usr/src/myapp/composer.phar install --no-dev --no-interaction --no-progress --optimize-autoloader
 
 echo "Run PHP lint"
-/bin/find -L . -name '*.php' -print0 | /usr/bin/xargs -0 -n 1 -P 4 /usr/bin/php -l
+/bin/find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 -l
