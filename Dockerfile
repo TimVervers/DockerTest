@@ -20,5 +20,7 @@ WORKDIR /usr/src/myapp
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer install --prefer-source
 
+VOLUME ["/artifacts"]
+
 #Run ci.sh
 ENTRYPOINT /bin/bash "ci.sh"
