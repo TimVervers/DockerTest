@@ -18,4 +18,4 @@ rm -f /artifacts/*.txt
 cat /proc/self/cgroup | grep 'docker' | sed 's/^.*\///' | tail -n1 > docker_containerId.txt
 
 # Go into sleep mode
-sleep 5h
+#sleep 5h
