@@ -1,5 +1,8 @@
 FROM php:5.6
 
+#Install mbstring extension
+RUN docker-php-ext-install mbstring
+
 #Copy shell script to bin folder to make it executable by entrypoint
 COPY ci.sh /usr/local/bin
 
