@@ -28,7 +28,7 @@ Open Docker Quickstart Terminal
 
 Check this by typing
 - docker images
-- 
+
 Make sure you don't have active containers by running
 - docker ps -a
 
