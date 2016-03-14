@@ -1,10 +1,16 @@
 FROM microsoft/aspnet:latest
 
 #Copy shell script to bin folder to make it executable by entrypoint
-COPY initial.sh /usr/local/bin
+#COPY initial.sh /usr/local/bin
 
 #Define workdir
 WORKDIR /usr/src/myapp
 
-#Run ci.sh
-ENTRYPOINT /bin/bash "initial.sh"
+#Run dnu restore
+RUN ["dnu", "restore"]
+
+#EXPOSE port 5004 to the docker daemon
+EXPOSE 5004
+
+#run DNX from project.json
+ENTRYPOINT ["dnx", "-p", "project.json", "kestrel"]
