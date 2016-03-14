@@ -1,3 +1,5 @@
-echo "Initial sh proces running"
+#restore all packages
+dnu restore
 
-sleep 5h
+#run program
+dnx -p project.json kestrel
