@@ -22,16 +22,18 @@ Prerequisites:
 
 First get the latest images by pulling them into your local repository.
 
-Open Docker Quickstart Terminal
-- docker pull timververs/teamcity-agent:php
-- docker pull timververs/teamcity-agent:net
+Open Docker Quickstart Terminal and make sure that you have your forked branch cloned to your desktop.
 
-Check this by typing
-- docker images
+Find the root map of your project (for example) 
+- /Users/timververs/Development/TestProject/
 
-Make sure you don't have active containers by running
+Run the following docker command
+- docker run -it -v {RootProjectFolder}:/usr/src/myapp timververs/teamcity-agent:php developmentphp
+
+## Docker commands
+Check all running containers
 - docker ps -a
 
-Verwijder all containers met
+Delete all containers that are currently running
 - docker rm $(docker ps -a -q)
 
