@@ -1,9 +1,5 @@
 FROM php:5.6
 
-#Copy codebase from test project 
-# https://github.com/TimVervers/TestProject
-COPY . /usr/src/myapp
-
 #Copy shell script to bin folder to make it executable by entrypoint
 COPY ci.sh /usr/local/bin
 
@@ -19,8 +15,6 @@ WORKDIR /usr/src/myapp
 # Install composer and codesniffer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && composer install --prefer-source
-
-VOLUME ["/artifacts"]
 
 #Run ci.sh
 ENTRYPOINT /bin/bash "ci.sh"
