@@ -7,10 +7,10 @@ FROM microsoft/aspnet:latest
 WORKDIR /usr/src/myapp
 
 #Run dnu restore
-RUN ["dnu", "restore"]
+RUN ["kpm", "restore"]
 
 #EXPOSE port 5004 to the docker daemon
 EXPOSE 5004
 
 #run DNX from project.json
-ENTRYPOINT ["dnx", "-p", "project.json", "kestrel"]
+ENTRYPOINT ["k", "kestrel"]
