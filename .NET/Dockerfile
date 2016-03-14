@@ -13,4 +13,4 @@ RUN ["dnu", "restore"]
 EXPOSE 5004
 
 #run DNX from project.json
-ENTRYPOINT ["dnx", "-p", "project.json", "kestrel"]
+ENTRYPOINT ["dnx", "kestrel"]
