@@ -1,3 +1,6 @@
+#Disable stricthostkeychecking
+ssh -o StrictHostKeyChecking=no git@github.com
+
 #Add github to known hosts
 ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
