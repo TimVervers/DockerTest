@@ -27,8 +27,15 @@ Open Docker Quickstart Terminal and make sure that you have your forked branch c
 Find the root map of your project (for example) 
 - /Users/timververs/Development/TestProject/
 
+Create an .netrc file in ~/ (You can change the path of the .netrc file, but then you also need to change that in the docker run command)
+- cat > ~/.netrc <<EOF
+- machine github.com
+- login {GITHUB_USERNAME}
+- password {GENERATED_TOKEN}
+- EOF
+
 Run the following docker command
-- docker run -it -v {RootProjectFolder}:/usr/src/myapp timververs/teamcity-agent:php developmentphp
+- docker run -it -v ~/:/root -v {RootProjectFolder}:/usr/src/myapp timververs/teamcity-agent:php
 
 ## Docker commands
 Check all running containers
