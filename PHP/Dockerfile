@@ -16,4 +16,5 @@ RUN apt-get update \
 WORKDIR /usr/src/myapp
 
 #Run ci.sh
-ENTRYPOINT /bin/bash "ci.sh"
+ENTRYPOINT ["/bin/bash"]
+CMD ["ci.sh"]
