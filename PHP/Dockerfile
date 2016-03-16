@@ -15,8 +15,5 @@ RUN apt-get update \
 #Define workdir
 WORKDIR /usr/src/myapp
 
-#define user
-USER php
-
 #Run ci.sh
 ENTRYPOINT /bin/bash "ci.sh"
