@@ -10,6 +10,12 @@ RUN apt-get update \
     unzip \
     libicu-dev \
     g++
+    
+# install xdebug for code coverage documents
+RUN pecl install xdebug
+
+# enable xbux
+RUN docker-php-ext-enable xdebug
 
 #Install PHP Extensions
 RUN docker-php-ext-install mbstring gettext intl
