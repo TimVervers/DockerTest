@@ -8,5 +8,7 @@ RUN apt-get update && \
     apt-get install -y curl php5-cli git unzip libicu-dev g++ && \
     docker-php-ext-install mbstring gettext intl
 
+WORKDIR /usr/src/myapp
+
 #Run ci.sh
 ENTRYPOINT ["/bin/bash", "ci.sh"]
