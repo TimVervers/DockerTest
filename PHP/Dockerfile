@@ -6,7 +6,7 @@ COPY ci.sh /usr/local/bin
 # Run updates, installs, extensions and set timezone
 RUN apt-get update && \
     apt-get install -y curl php5-cli git unzip libicu-dev g++ && \
-    docker-php-ext-install mbstring gettext intl gd && \
+    docker-php-ext-install mbstring gettext intl opcache && \
     pecl install xdebug-beta && \
     docker-php-ext-enable xdebug && \
     echo Europe/Amsterdam | tee /etc/timezone && \
