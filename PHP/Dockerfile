@@ -9,7 +9,11 @@ RUN apt-get update && \
     docker-php-ext-install mbstring gettext intl && \
     pecl install xdebug-beta && \
     docker-php-ext-enable xdebug
+    
+#set timezone to amsterdam
+RUN echo Europe/Amsterdam | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata
 
+#Set workdir to copy app to
 WORKDIR /usr/src/myapp
 
 #Run ci.sh
