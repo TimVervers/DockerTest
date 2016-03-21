@@ -6,7 +6,8 @@ COPY ci.sh /usr/local/bin
 # Run updates, installs, extensions and set timezone
 RUN apt-get update && \
     apt-get install -y curl php5-cli git unzip libicu-dev g++ && \
-    docker-php-ext-install mbstring gettext intl opcache && \
+    docker-php-ext-configure gd --with-png-dir=/usr/src/myapp --with-jpeg-dir=/usr/src/myapp && \
+    docker-php-ext-install gd intl mbstring gettext opcache zip && \
     pecl install xdebug-beta && \
     docker-php-ext-enable xdebug && \
     echo Europe/Amsterdam | tee /etc/timezone && \
