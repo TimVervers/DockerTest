@@ -1,7 +1,10 @@
 FROM sjoerdmulder/teamcity-agent
 
+RUN php -v
 RUN apt-get update && \
-    apt-get install -y curl php5-cli git unzip libicu-dev g++
+RUN apt-get install -y curl git unzip 
+RUN apt-get install -y php5-cli 
+RUN apt-get install -y libicu-dev g++
     
 RUN docker-php-ext-install intl mbstring gettext
 RUN pecl install xdebug-beta
