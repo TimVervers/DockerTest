@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     g++
     
+RUN chmod +x /usr/local/bin/docker-php-ext-install
+
 RUN /usr/local/bin/docker-php-ext-install intl mbstring gettext
 RUN pecl install xdebug-beta
 RUN docker-php-ext-enable xdebug
