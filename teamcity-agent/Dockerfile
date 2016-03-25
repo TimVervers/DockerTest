@@ -1,6 +1,6 @@
 FROM sjoerdmulder/teamcity-agent
 
-RUN apt-get update && \
+RUN apt-get update
 RUN apt-get install -y curl git unzip 
 RUN apt-get install -y php5-cli 
 RUN apt-get install -y libicu-dev g++
