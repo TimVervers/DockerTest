@@ -9,6 +9,5 @@ RUN apt-get update && apt-get install -y \
     php5-intl \
     libapache2-mod-php5 \
     gettext \
+    php5-xdebug \
     g++ 
-    
-RUN pecl install xdebug-beta
