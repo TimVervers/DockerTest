@@ -9,6 +9,6 @@ RUN apt-get update && apt-get install -y \
     g++
     
 RUN apt-get install -y php5-intl 
-RUN apt-get install -y mbstring 
-RUN apt-get install -y gettext
+RUN apt-get install -y php5-mbstring 
+RUN apt-get install -y php5-gettext
 RUN pecl install xdebug-beta
