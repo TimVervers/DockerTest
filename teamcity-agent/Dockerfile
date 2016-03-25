@@ -1,4 +1,4 @@
-FROM sjoerdmulder/teamcity-agent-docker
+FROM sjoerdmulder/teamcity-agent
 
 RUN apt-get update && \
     apt-get install -y curl php5-cli git unzip libicu-dev g++ && \
