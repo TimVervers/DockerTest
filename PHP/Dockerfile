@@ -1,7 +1,7 @@
 FROM php:5.6
 
 #Copy shell script to bin folder to make it executable by entrypoint
-COPY ci.sh /usr/local/bin
+ADD ci.sh /usr/local/bin
 
 # Run updates, installs, extensions and set timezone
 RUN apt-get update && \
