@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y \
     unzip \
     php5-cli \ 
     libicu-dev \
-    g++
+    php5-intl \
+    g++ \
+    libapache2-mod-php5
     
-RUN apt-get install -y php5-intl 
-RUN apt-get install -y php5-mbstring 
 RUN apt-get install -y php5-gettext
 RUN pecl install xdebug-beta
