@@ -1,9 +1,14 @@
 FROM sjoerdmulder/teamcity-agent
 
-RUN apt-get update
-RUN apt-get install -y curl git unzip 
-RUN apt-get install -y php5-cli 
-RUN apt-get install -y libicu-dev g++
+ADD docker-php-ext-* /usr/local/bin/
+
+RUN apt-get update && apt-get install -y \
+    curl 
+    git 
+    unzip 
+    php5-cli 
+    libicu-dev 
+    g++
     
 RUN docker-php-ext-install intl mbstring gettext
 RUN pecl install xdebug-beta
