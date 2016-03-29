@@ -10,5 +10,7 @@ RUN apt-get update && apt-get install -y \
     libapache2-mod-php5 \
     gettext \
     php5-xdebug \
+    php5-curl \
+    php5-gd \
     g++ && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
