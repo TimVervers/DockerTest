@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     php5-intl \
     libapache2-mod-php5 \
+    php5-mysql \
+    php5-xsl \
+    php5-sqlite \
     gettext \
     php5-xdebug \
     php5-curl \
