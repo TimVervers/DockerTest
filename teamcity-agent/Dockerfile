@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y \
     libapache2-mod-php5 \
     php5-ldap\ 
     php5-mysql \
-    php5-mysqlnd \
     php5-xsl \
     php5-sqlite \
     php5-xmlrpc \
