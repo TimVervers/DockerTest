@@ -5,15 +5,15 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     php5-cli \ 
-    libicu-dev \
     php5-intl \
     libapache2-mod-php5 \
-    php5-ldap\ 
+    libicu-dev \
+    php5-imagick \
+    php5-memcache \
     php5-mysql \
     php5-xsl \
     php5-sqlite \
-    php5-xmlrpc \
-    php5-odbc \
+    php5-redis \
     gettext \
     php5-xdebug \
     php5-curl \
