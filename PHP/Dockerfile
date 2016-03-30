@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libicu-dev \
     php5-intl \
-    php5-mbstring \
+    libapache2-mod-php5 \
     gettext \
     php5-xdebug \
     g++
