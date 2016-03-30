@@ -4,13 +4,17 @@ FROM php:5.6
 ADD ci.sh /usr/local/bin
 
 # Run updates, installs, extensions and set timezone
-RUN apt-get update && \
-    apt-get install -y curl php5-cli git unzip libicu-dev g++ && \
-    docker-php-ext-install intl mbstring gettext && \
-    pecl install xdebug-beta && \
-    docker-php-ext-enable xdebug && \
-    echo Europe/Amsterdam | tee /etc/timezone && \
-    dpkg-reconfigure --frontend noninteractive tzdata
+RUN apt-get update && apt-get install -y \
+    curl \
+    php5-cli \
+    git \
+    unzip \
+    libicu-dev \
+    php5-intl \
+    php5-mbstring \
+    gettext \
+    php5-xdebug \
+    g++
     
 #Set workdir to copy app to
 WORKDIR /usr/src/myapp
