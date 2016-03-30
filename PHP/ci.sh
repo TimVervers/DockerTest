@@ -8,5 +8,6 @@ composer install --prefer-source --no-interaction --no-progress
 export COMPOSER_PROCESS_TIMEOUT=2000
 
 # Run PHPUnit
-composer test -vvv
+vendor/bin/phpunit Resources/UnitTests/Library/WebShop/Products/Views/ProductStorePickupItemViewTest.php
+#composer test -vvv
 #vendor/bin/phpunit --coverage-clover=./coverage/phpunit-clover.xml --coverage-html=phpunit-coverage --log-junit=./coverage/phpunit-junit.xml
