@@ -25,7 +25,7 @@ First get the latest images by pulling them into your local repository.
 Open Docker Quickstart Terminal and make sure that you have your forked branch cloned to your desktop.
 
 Find the root map of your project (for example) 
-- /Users/timververs/Development/TestProject/
+- ~/Development/php-project/
 
 Create an .netrc file in ~/ (You can change the path of the .netrc file, but then you also need to change that in the docker run command)
 - cat > ~/.netrc <<EOF
@@ -42,5 +42,11 @@ Check all running containers
 - docker ps -a
 
 Delete all containers that are currently running
-- docker rm $(docker ps -a -q)
+- docker rm -f $(docker ps -a -q)
+
+Delete all images with the tag "<none>"
+- docker rmi -f $(docker images | grep "<none>"
+
+Build image
+- dockerk build -t teamcityagent:php .
 
