@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     unzip \
-    php5-cli \ 
     php5-intl \
     libapache2-mod-php5 \
     libicu-dev \
@@ -20,8 +19,8 @@ RUN apt-get update && apt-get install -y \
     php5-redis \
     gettext \
     php5-xdebug \
-    php5-curl \
     php5-gd \
+    php5-cli \ 
     g++ && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
     
