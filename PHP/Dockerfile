@@ -19,8 +19,12 @@ RUN apt-get update && \
     docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
     docker-php-ext-install -j$(nproc) gd intl mbstring gettext && \
     pecl install xdebug-beta memcached && \
-    docker-php-ext-enable xdebug memcached && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    docker-php-ext-enable xdebug memcached
+    
+#Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+#Copy source code into image
 
 #Set workdir to copy app to
 WORKDIR /usr/src/myapp
