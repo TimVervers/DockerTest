@@ -8,4 +8,7 @@ composer install --prefer-source --no-interaction --no-progress
 export COMPOSER_PROCESS_TIMEOUT=2000
 
 # Run PHPUnit
-vendor/bin/phpunit --coverage-clover=./coverage/phpunit-clover.xml --coverage-html=./coverage --log-junit=./coverage/phpunit-junit.xml
+vendor/bin/phpunit --coverage-clover=./phpunit-clover.xml --coverage-html=./phpunit-coverage --log-junit=./phpunit-junit.xml
+
+# Run Clover
+vendor/bin/teamcity-clover ./phpunit-clover.xml
