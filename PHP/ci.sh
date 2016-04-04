@@ -10,5 +10,8 @@ export COMPOSER_PROCESS_TIMEOUT=2000
 # Run PHPUnit
 vendor/bin/phpunit --coverage-clover=./phpunit-clover.xml --coverage-html=./phpunit-coverage --log-junit=./phpunit-junit.xml
 
-# Run Clover
+# Run teamcity Clover
 vendor/bin/teamcity-clover ./phpunit-clover.xml
+
+# Publish artifact zip to teamcity
+echo "##teamcity[publishArtifacts 'phpunit-coverage => coverage.zip']"
