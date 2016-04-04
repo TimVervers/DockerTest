@@ -4,7 +4,8 @@ FROM centos:7
 WORKDIR /usr/src/myapp
 
 # Install ruby, puppet and all depencies based on lock files
-RUN yum install -y ruby-devel rubygems git gcc make
+RUN yum install -y ruby-devel rubygems git gcc make && \
+    gem install bundler 
     
 ADD buildSteps.sh /usr/src/myapp
 
