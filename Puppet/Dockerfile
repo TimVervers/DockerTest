@@ -10,4 +10,4 @@ RUN yum install -y ruby-devel rubygems git gcc make && \
 ADD buildSteps.sh /usr/src/myapp
 
 #Run buildSteps.sh
-ENTRYPOINT ["/bin/bash", "/usr/src/myapp/buildSteps.sh"]
+ENTRYPOINT ["/bin/bash", "buildSteps.sh"]
