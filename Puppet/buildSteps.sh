@@ -1,4 +1,4 @@
-ls -hal
+sleep 5h
 
 # Run Gem Install 
 gem install bundler 
