@@ -6,6 +6,8 @@ WORKDIR /usr/src/myapp
 # Install ruby, puppet and all depencies based on lock files
 RUN yum install -y ruby-devel rubygems git gcc make && \
     gem install bundler 
+    
+ADD buildSteps.sh /usr/src/myapp
 
 #Run buildSteps.sh
 ENTRYPOINT ["/bin/bash", "buildSteps.sh"]
