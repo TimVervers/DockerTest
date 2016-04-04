@@ -7,7 +7,8 @@ WORKDIR /usr/src/myapp
 RUN yum install -y ruby-devel rubygems git gcc make && \
     gem install bundler 
     
-ADD buildSteps.sh /usr/src/myapp
+# Copy buildSteps to executable path    
+ADD buildSteps.sh /usr/local/bin
 
 #Run buildSteps.sh
-ENTRYPOINT ["/bin/bash", "usr/src/myapp/buildSteps.sh"]
+ENTRYPOINT ["/bin/bash", "buildSteps.sh"]
