@@ -1,5 +1,8 @@
 FROM php:5.6-cli
 
+#Set workdir to copy app to
+WORKDIR /usr/src/myapp
+
 # Run updates, installs and extensions
 RUN apt-get update && \
     apt-get install -y \
@@ -16,16 +19,11 @@ RUN apt-get update && \
     docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
     docker-php-ext-install -j$(nproc) gd intl mbstring gettext && \
     pecl install xdebug-beta memcached && \
-    docker-php-ext-enable xdebug memcached
-    
-#Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    docker-php-ext-enable xdebug memcached && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#Set workdir to copy app to
-WORKDIR /usr/src/myapp
-
-#copy to worker
-ADD buildSteps.sh /usr/src/myapp
+#copy to executable path
+ADD buildSteps.sh /usr/local/bin
 
 #Run buildSteps.sh
 ENTRYPOINT ["/bin/bash", "buildSteps.sh"]
