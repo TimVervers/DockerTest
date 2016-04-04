@@ -1,4 +1,5 @@
-echo "Running bundle"
+# Run Gem Install 
+gem install bundler 
 
 # Run bundle install
 bundle install --binstubs --path vendor/bundle 
