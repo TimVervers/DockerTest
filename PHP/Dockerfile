@@ -1,8 +1,5 @@
 FROM php:5.6-cli
 
-#Copy shell script to bin folder to make it executable by entrypoint
-ADD ci.sh /usr/local/bin
-
 # Run updates, installs and extensions
 RUN apt-get update && \
     apt-get install -y \
@@ -24,10 +21,11 @@ RUN apt-get update && \
 #Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#Copy source code into image
-
 #Set workdir to copy app to
 WORKDIR /usr/src/myapp
 
-#Run ci.sh
-ENTRYPOINT ["/bin/bash", "ci.sh"]
+#copy to worker
+ADD buildSteps.sh /usr/src/myapp
+
+#Run buildSteps.sh
+ENTRYPOINT ["/bin/bash", "buildSteps.sh"]
