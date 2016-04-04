@@ -1,18 +1,3 @@
-## Synopsis
-
-This project is a sample of how it's possible to compile and test your code in a development enviornment. Also it should do the exact same on a teamcity-agent.
-
-## Code Example
-
-It's split up in code languages
-
-##### PHP
- Inside there is a Dockerfile which contains the basics to run a PHP project. It calls ci.sh to run composer, code sniffer and phpunit
-
-##### .NET
-
-Inside there is a Dockerfile which contains the basics to run a .NET project (mono linux). It calls initial.sh to run basic echo commands (should be diffrend).
-
 ## Installation
 
 Prerequisites:
@@ -28,14 +13,12 @@ Find the root map of your project (for example)
 - ~/Development/php-project/
 
 Create an .netrc file in ~/ (You can change the path of the .netrc file, but then you also need to change that in the docker run command)
-- cat > ~/.netrc <<EOF
-- machine github.com
-- login {GITHUB_USERNAME}
-- password {GENERATED_TOKEN}
-- EOF
+
+- echo "machine github.com login {GITHUB_USERNAME} password {GENERATED_TOKEN}" >> ~/.netrc
 
 Run the following docker command
-- docker run -it -v ~/:/root -v {RootProjectFolder}:/usr/src/myapp timververs/teamcity-agent:php
+- docker run -it -v ~/.netrc:/root/.netrc -v {RootProjectFolder}:/usr/src/myapp timververs/php
+- docker run -it -v ~/.netrc:/root/.netrc -v {RootProjectFolder}:/usr/src/myapp timververs/puppet
 
 ## Docker commands
 Check all running containers
@@ -48,5 +31,14 @@ Delete all images with the tag "<none>"
 - docker rmi -f $(docker images | grep "<none>"
 
 Build image
-- dockerk build -t teamcityagent:php .
+- docker build -t php:5.6-cli .
+
+Run a container in "daemon" mode
+- docker run -d -v ~/.netrc:/root/.netrc -v {RootProjectFolder}:/usr/src/myapp timververs/php
+
+Remove a container after it's done 
+- docker run --rm v ~/.netrc:/root/.netrc -v {RootProjectFolder}:/usr/src/myapp timververs/php
+
+Attach to a docker container that is running
+- docker exec -it [docker_id] /bin/bash
 
