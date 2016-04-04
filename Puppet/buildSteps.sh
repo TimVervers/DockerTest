@@ -1,3 +1,5 @@
+echo "Running bundle"
+
 # Run bundle install
 bundle install --binstubs --path vendor/bundle 
 
