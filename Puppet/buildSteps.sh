@@ -1,3 +1,5 @@
+ls -hal
+
 # Run Gem Install 
 gem install bundler 
 
