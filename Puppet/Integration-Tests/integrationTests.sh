@@ -5,8 +5,6 @@ bundle install --binstubs --path vendor/bundle
 bundle exec rake librarian:clean_install
 
 # Run tests
+bundle exec rake spec_clean
 bundle exec rake spec_prep
-bundle exec rake spec_unit
-
-# Run puppet lint
-bundle exec rake lint:puppet
+bundle exec rake spec_integration
