@@ -1,14 +1,14 @@
 FROM centos:7
 
-#Set workdir to copy app to
+# Set the working directory to /usr/src/myapp
 WORKDIR /usr/src/myapp
 
-# Install ruby, puppet and all depencies based on lock files
+# Install Ruby, Git, Bundler and all of it's dependencies
 RUN yum install -y ruby-devel rubygems git gcc make && \
     gem install bundler 
     
-# Copy buildSteps to executable path    
-ADD inspect.sh /usr/local/bin
+# Copy inspect.sh to an executable path    
+COPY inspect.sh /usr/local/bin
 
-#Run buildSteps.sh
+# Run inspect.sh as primary proces
 ENTRYPOINT ["/bin/bash", "inspect.sh"]
