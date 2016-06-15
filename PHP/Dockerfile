@@ -22,8 +22,8 @@ RUN apt-get update && \
     docker-php-ext-enable xdebug memcached && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#copy to executable path
-ADD buildSteps.sh /usr/local/bin
+# Copy all the shell files to an executable path    
+COPY *.sh /usr/local/bin
 
 #Run buildSteps.sh
 ENTRYPOINT ["/bin/bash", "buildSteps.sh"]

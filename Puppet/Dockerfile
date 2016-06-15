@@ -7,8 +7,8 @@ WORKDIR /usr/src/myapp
 RUN yum install -y ruby-devel rubygems git gcc make && \
     gem install bundler 
     
-# Copy inspect.sh to an executable path    
-COPY inspect.sh /usr/local/bin
+# Copy all the shell files to an executable path    
+COPY *.sh /usr/local/bin
 
 # Run inspect.sh as primary proces
 ENTRYPOINT ["/bin/bash", "inspect.sh"]
